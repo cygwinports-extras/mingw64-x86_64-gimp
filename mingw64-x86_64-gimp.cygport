@@ -1,0 +1,32 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross gnome2
+
+NAME="mingw64-x86_64-gimp"
+VERSION=2.8.10
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="GNU Image Manipulation Program for Win64 toolchain"
+DESCRIPTION="The GIMP is the GNU Image Manipulation Program. It is used to edit
+and manipulate images. It can load and save a variety of image formats and can
+be used to convert between formats.  GIMP can also be used as a paint program.
+In addition, GIMP has several scripting extension which allow for advanced non-
+interactive processing and creation of images."
+HOMEPAGE="http://www.gimp.org/"
+SRC_URI="ftp://ftp.gimp.org/pub/gimp/v${VERSION%.*}/gimp-${VERSION}.tar.bz2"
+SRC_DIR="gimp-${VERSION}"
+PATCH_URI="2.8.8-vpath.patch"
+
+DIFF_EXCLUDES="devel-docs"
+
+CYGCONF_ARGS="
+	--disable-static
+	--disable-default-binary
+	--enable-gimp-console
+	--disable-python
+	--without-alsa
+	--without-hal
+	--without-linux-input
+	ac_cv_path_WMF_CONFIG=${CROSS_BINDIR}/libwmf-config
+"
+
+DOCS="README.i18n"
