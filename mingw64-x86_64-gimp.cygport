@@ -2,8 +2,8 @@ CROSS_HOST="x86_64-w64-mingw32"
 inherit cross gnome2
 
 NAME="mingw64-x86_64-gimp"
-VERSION=2.8.14
-RELEASE=2
+VERSION=2.8.16
+RELEASE=1
 CATEGORY="Devel"
 SUMMARY="GNU Image Manipulation Program for Win64 toolchain"
 DESCRIPTION="The GIMP is the GNU Image Manipulation Program. It is used to edit
